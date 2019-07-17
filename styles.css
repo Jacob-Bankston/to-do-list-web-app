@@ -1,14 +1,21 @@
+body {
+    border: 5px solid black;
+    border-radius: 8px;
+}
+
 #titleBar {
     background-color: #2222AA;
     color: whitesmoke;
-    text-shadow: 2px 2px 4px #999999;
+    text-shadow: 2px 2px 4px black;
     font-size: 3em;
     font-family: 'Kaushan Script', cursive;
-    border: 2px solid #000000;
+    border-bottom: 5px solid black;
+
 
     display: flex;
     justify-content: center;
     flex: 1;
+    text-align: center;
 }
 
 #user_input {
@@ -35,7 +42,7 @@
     background-color: goldenrod;
     border: 2px solid darkgoldenrod;
     color: whitesmoke;
-    text-shadow: 2px 2px 4px #999999;
+    text-shadow: 2px 2px 4px black;
     font-family: 'Courgette', cursive;
     font-size: 1em;
     border-radius: 4px;
@@ -55,10 +62,10 @@
 #not-completed-tasks {
     background-color: #4444CC;
     color: whitesmoke;
-    text-shadow: 2px 2px 4px #999999;
+    text-shadow: 2px 2px 4px black;
     font-family: 'Courgette', cursive;
     font-size: 1.5em;
-    border: 2px solid #90CCFF;
+    border: 2px solid black;
     border-radius: 4px;
     
     text-align: center;
@@ -69,10 +76,10 @@
 #completed-tasks {
     background-color: #4444CC;
     color: whitesmoke;
-    text-shadow: 2px 2px 4px #999999;
+    text-shadow: 2px 2px 4px black;
     font-family: 'Courgette', cursive;
     font-size: 1.5em;
-    border: 2px solid #90CCFF;
+    border: 2px solid black;
     
     order: 2;
     text-align: center;
@@ -83,13 +90,14 @@
 .task-list {
     background-color: #54CBFE;
     color: whitesmoke;
-    text-shadow: 2px 2px 4px #999999;
+    text-shadow: 2px 2px 4px black;
     font-family: 'Courgette', cursive;
     font-size: 1em;
-    border: 2px solid #90CCFF;
+    border: 2px solid black;
     order: 1;
 
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     
@@ -107,12 +115,49 @@
 
 #taskListDiv button {
     background-color: #54CBFE;
-    border: 2px solid #90CCFF;
+    border: none;
     color: whitesmoke;
-    text-shadow: 2px 2px 4px #999999;
+    text-shadow: 2px 2px 4px black;
     font-family: 'Courgette', cursive;
     font-size: .5em;
 
     display: flex;
     align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+    #titleBar {
+        font-size: 2em;
+    }
+    #not-completed-tasks {
+        font-size: 1.2em;
+    }
+    #completed-tasks {
+        font-size: 1.2em;
+    }
+    #user_input {
+        flex-direction: column;
+        font-size: .8em;
+    }
+    #user_input input[type=text] {
+        margin: 3px 15% 3px 15%;
+    }
+    #user_input button {
+        margin-top: 3px;
+        align-self: center;
+    }
+    .task-list {
+        font-size: .8em;
+        text-align: center;
+        justify-content: center;
+    }
+    .check {
+        flex: 1;
+    }
+    .remove {
+        flex: 1;
+    }
+    .task-list span {
+        flex: 3;
+    }
 }

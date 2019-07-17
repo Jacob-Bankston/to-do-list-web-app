@@ -3,12 +3,14 @@ let taskName = document.getElementById('taskName')
 let priorityLevel = document.getElementById("priorityLevel")
 
 // vacation div is empty and this is where we will inject other HTML elements
-let taskListDiv = document.getElementById("taskListDiv")
+let taskListDiv = document.getElementById("not-completed-tasks")
 
 saveButton.addEventListener('click', function() {
     
     let task = taskName.value
+    taskName.value = ""
     let priority = priorityLevel.value
+    priorityLevel.value = ""
     
     // create a DIV element 
     let taskDiv = document.createElement("div")
@@ -25,6 +27,11 @@ saveButton.addEventListener('click', function() {
     let checkBox = document.createElement("input")
     checkBox.setAttribute("type", "checkbox")
     checkBox.className = "check"
+
+    let newlabel = document.createElement("Label");
+    newlabel.setAttribute("for", "check");
+    newlabel.innerHTML = "Incomplete";
+    checkBox.appendChild(newlabel);
     
     let removeButton = document.createElement("button")
     removeButton.innerHTML = "REMOVE"
@@ -45,8 +52,10 @@ saveButton.addEventListener('click', function() {
     checkBox.onclick = function() {
         if(this.checked) {
             this.parentNode.style.order = 3;
+            document.getElementById("completed-tasks").appendChild(this.parentNode) 
         } else {
             this.parentNode.style.order = 1;
+            document.getElementById("not-completed-tasks").appendChild(this.parentNode)
         }
     }
 
